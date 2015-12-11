@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -66,8 +68,18 @@ public class objetoListActivity extends AppCompatActivity
                     .findFragmentById(R.id.objeto_list))
                     .setActivateOnItemClick(true);
         }
-
+        //lanzamos el metodo lanzarGiro
+        lanzarGiro();
         // TODO: If exposing deep links into your app, handle intents here.
+    }
+
+    /**
+     * Si la variable de values config.xml es true
+     */
+    public void lanzarGiro() {
+        if (getResources().getBoolean(R.bool.pantallaEsLand)) {
+            Toast.makeText(getApplicationContext(), "Tumbado", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
