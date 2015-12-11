@@ -23,6 +23,7 @@ import com.example.fran.examenpmdm.dummy.DummyContent;
  * on handsets.
  */
 public class objetoDetailFragment extends Fragment {
+    private OnItemSelectedListener listener;
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -87,7 +88,27 @@ public class objetoDetailFragment extends Fragment {
                 }
             }
         });
-
+        //ENVIAMOS EL DATO OK MEDIANTE EL LISTENER A LA OTRA CLASE.
+        listener.enviarOK("OK");
         return rootView;
     }
+
+    /**
+     * CREAMOS UNA INTERFAZ
+     */
+    public interface OnItemSelectedListener {
+        public void enviarOK(String link);
+    }
+
+    @Override
+    public void onAttach(Activity context) {
+        super.onAttach(context);
+        if (context instanceof OnItemSelectedListener) {
+            listener = (OnItemSelectedListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement MyListFragment.OnItemSelectedListener");
+        }
+    }
+
 }

@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.Toast;
 
 
 /**
@@ -16,17 +17,17 @@ import android.view.View;
  * lead to a {@link objetoDetailActivity} representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
- * <p/>
+ * <p>
  * The activity makes heavy use of fragments. The list of items is a
  * {@link objetoListFragment} and the item details
  * (if present) is a {@link objetoDetailFragment}.
- * <p/>
+ * <p>
  * This activity also implements the required
  * {@link objetoListFragment.Callbacks} interface
  * to listen for item selections.
  */
 public class objetoListActivity extends AppCompatActivity
-        implements objetoListFragment.Callbacks {
+        implements objetoListFragment.Callbacks, objetoDetailFragment.OnItemSelectedListener {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -86,7 +87,6 @@ public class objetoListActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.objeto_detail_container, fragment)
                     .commit();
-
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
@@ -94,5 +94,14 @@ public class objetoListActivity extends AppCompatActivity
             detailIntent.putExtra(objetoDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
+    }
+
+    /**
+     * Implementamos  objetoDetailFragment.OnItemSelectedListener
+     * @param link
+     */
+    @Override
+    public void enviarOK(String link) {
+
     }
 }
