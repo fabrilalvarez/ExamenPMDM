@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ExamenPMDM</string>
     <string name="title_objeto_detail">objeto Detail</string>
+    <string name="borrar">Borrar</string>
 </resources>
