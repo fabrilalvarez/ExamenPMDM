@@ -98,10 +98,11 @@ public class objetoListActivity extends AppCompatActivity
 
     /**
      * Implementamos  objetoDetailFragment.OnItemSelectedListener
+     *
      * @param link
      */
     @Override
     public void enviarOK(String link) {
-
+        Toast.makeText(getApplicationContext(), link, Toast.LENGTH_SHORT).show();
     }
 }
